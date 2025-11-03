@@ -10,7 +10,7 @@
 
 ## 2. Data
 
-The dataset is available at here. 
+已经包含在Github链接中
 
 https://drive.google.com/drive/folders/1so8lY1XKpnhUtTvb15edEz6aeHt7CSuh?usp=sharing
 
@@ -19,6 +19,9 @@ https://drive.google.com/drive/folders/1so8lY1XKpnhUtTvb15edEz6aeHt7CSuh?usp=sha
 Python包的管理（解决Pip与Conda的问题）
 
 https://python-poetry.org/docs/
+
+poetry install
+poetry run python *.py
 
 ## 4. Transformers OR Modelscope
 
