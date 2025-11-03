@@ -1,6 +1,7 @@
 import torch
 from torch.utils.data import TensorDataset, DataLoader
 from transformers import BertTokenizer, AutoTokenizer, BertweetTokenizer
+from modelscope.hub.snapshot_download import snapshot_download
 
 
 # Tokenization
@@ -43,7 +44,18 @@ def data_helper_bert(x_train_all,x_val_all,x_test_all,model_select):
     if model_select == 'Bertweet':
         tokenizer = BertweetTokenizer.from_pretrained("vinai/bertweet-base", normalization=True)
     elif model_select == 'Bert':
-        tokenizer = BertTokenizer.from_pretrained("bert-base-uncased", do_lower_case=True)
+        # ModelScope的模型ID（可在ModelScope官网搜索获取）
+        model_id = "google-bert/bert-base-uncased"
+        # 本地保存路径
+        local_dir = "./modelscope_models/bert-base-uncased"
+
+        # 下载模型（自动处理断点续传）
+        snapshot_download(
+            model_id=model_id,
+            local_dir=local_dir,
+        )
+        
+        tokenizer = BertTokenizer.from_pretrained(local_dir, do_lower_case=True)
         
     # tokenization
     x_train_input_ids, x_train_seg_ids, x_train_atten_masks, x_train_len = \
