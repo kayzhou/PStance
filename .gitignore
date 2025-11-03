@@ -108,4 +108,4 @@ dmypy.json
 .pyre/
 
 .DS_Store
-modelscope_models/*
+modelscope_models
