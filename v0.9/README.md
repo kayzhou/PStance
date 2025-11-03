@@ -1,44 +1,14 @@
-
-
-# 立场检测案例PStance
-
-## 1. Github
-
-代码文件
-
-https://github.com/chuchun8/PStance
-
-## 2. Data
-
-The dataset is available at here. 
-
-https://drive.google.com/drive/folders/1so8lY1XKpnhUtTvb15edEz6aeHt7CSuh?usp=sharing
-
-## 3. Poetry
-
-Python包的管理（解决Pip与Conda的问题）
-
-https://python-poetry.org/docs/
-
-## 4. Transformers OR Modelscope
-
-模型下载及使用
-
-https://huggingface.co/docs/transformers/main/zh/index
-
-https://www.modelscope.cn/models
-
-
-
-## 原README
+# PStance
 
 ACL 2021 (Findings) paper: P-Stance: A Large Dataset for Stance Detection in Political Domain.
 
-### Abstract
+The dataset is available at [here](https://drive.google.com/drive/folders/1so8lY1XKpnhUtTvb15edEz6aeHt7CSuh?usp=sharing).
+
+## Abstract
 
 Stance detection determines whether the author of a text is in favor of, against or neutral to a specific target and provides valuable insights into important events such as presidential election. However, progress on stance detection has been hampered by the absence of large annotated datasets. In this paper, we present P-Stance, a large stance detection dataset in the political domain, which contains 21,574 labeled tweets. We provide a detailed description of the newly created dataset and develop deep learning models on it. Our best model achieves a macro-average F1-score of 80.53%, which we improve further by using semi-supervised learning. Moreover, our P-Stance dataset can facilitate research in the fields of cross-domain stance detection such as cross-target stance detection where a classifier is adapted from a different but related target.
 
-### Run
+## Run
 
 BERTweet is used as our baseline for in-target stance detection and cross-target stance detection in this paper. First, configure the environment:
 ```
@@ -59,5 +29,9 @@ python train_model.py \
 
 Or run jupyter notebook example `pstance_run.ipynb`
 
+## Contact Info
+
+Please contact Yingjie Li at yli300@uic.edu with any questions.
 
 
+ 
