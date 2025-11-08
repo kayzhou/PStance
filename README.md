@@ -1,5 +1,3 @@
-
-
 # 立场检测案例PStance
 
 ## 1. Github
@@ -10,7 +8,7 @@ https://github.com/chuchun8/PStance
 
 ## 2. Data
 
-The dataset is available at here. 
+The dataset is available at here.
 
 https://drive.google.com/drive/folders/1so8lY1XKpnhUtTvb15edEz6aeHt7CSuh?usp=sharing
 
@@ -20,6 +18,12 @@ Python包的管理（解决Pip与Conda的问题）
 
 https://python-poetry.org/docs/
 
+pip install poetry
+
+poetry install
+
+poetry run python train_model.py
+
 ## 4. Transformers OR Modelscope
 
 模型下载及使用
@@ -27,8 +31,6 @@ https://python-poetry.org/docs/
 https://huggingface.co/docs/transformers/main/zh/index
 
 https://www.modelscope.cn/models
-
-
 
 ## 原README
 
@@ -41,10 +43,13 @@ Stance detection determines whether the author of a text is in favor of, against
 ### Run
 
 BERTweet is used as our baseline for in-target stance detection and cross-target stance detection in this paper. First, configure the environment:
+
 ```
 $ pip install -r requirements.txt
 ```
+
 Then run
+
 ```
 cd source/
 python train_model.py \
@@ -55,9 +60,7 @@ python train_model.py \
     --batch_size 32 \
     --epochs 3 \
 ```
+
 `input_target` can take one of the following targets [`trump`, `biden`, `bernie`] in adhoc setting and take [`all`] in unified setting.
 
 Or run jupyter notebook example `pstance_run.ipynb`
-
-
-
