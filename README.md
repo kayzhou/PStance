@@ -4,13 +4,13 @@
 
 代码文件
 
-https://github.com/chuchun8/PStance
+[https://github.com/kayzhou/PStance](https://github.com/kayzhou/PStance)
 
 ## 2. Data
 
 The dataset is available at here.
 
-https://drive.google.com/drive/folders/1so8lY1XKpnhUtTvb15edEz6aeHt7CSuh?usp=sharing
+已经包含在Github链接中
 
 ## 3. Poetry
 
@@ -18,11 +18,14 @@ Python包的管理（解决Pip与Conda的问题）
 
 https://python-poetry.org/docs/
 
+```python
 pip install poetry
 
 poetry install
 
-poetry run python train_model.py
+poetry run python *.py
+
+```
 
 ## 4. Transformers OR Modelscope
 
