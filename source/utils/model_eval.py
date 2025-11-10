@@ -7,7 +7,7 @@ from sklearn.metrics import precision_recall_fscore_support
 # Evaluation
 def compute_f1(preds, y):
     
-    rounded_preds = F.softmax(preds)
+    rounded_preds = F.softmax(preds, dim=1)
     _, indices = torch.max(rounded_preds, 1)
                 
     correct = (indices == y).float()

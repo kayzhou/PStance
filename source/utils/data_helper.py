@@ -42,7 +42,18 @@ def data_helper_bert(x_train_all,x_val_all,x_test_all,model_select):
     
     # get the tokenizer
     if model_select == 'Bertweet':
-        tokenizer = BertweetTokenizer.from_pretrained("vinai/bertweet-base", normalization=True)
+        # ModelScope的模型ID
+        model_id = "kayzhou/bertweet-base"
+        # 本地保存路径
+        local_dir = "./modelscope_models/bertweet-base"
+
+        # 下载模型（自动处理断点续传）
+        snapshot_download(
+            model_id=model_id,
+            local_dir=local_dir,
+        )
+        
+        tokenizer = BertweetTokenizer.from_pretrained(local_dir, normalization=True)
     elif model_select == 'Bert':
         # ModelScope的模型ID（可在ModelScope官网搜索获取）
         model_id = "google-bert/bert-base-uncased"

@@ -3,6 +3,9 @@ import re
 import wordninja
 import pandas as pd
 
+# 设置pandas选项以避免replace方法的FutureWarning
+pd.set_option('future.no_silent_downcasting', True)
+
 # 配置 preprocessor 选项，只需设置一次
 p.set_options(p.OPT.URL, p.OPT.EMOJI, p.OPT.RESERVED)
 

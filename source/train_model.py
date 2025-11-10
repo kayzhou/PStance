@@ -17,7 +17,7 @@ def run_classifier():
     parser.add_argument(
         "--model_select", 
         type=str, 
-        default="Bert", 
+        default="Bertweet", 
         help="BERTweet or BERT model"
     )
     parser.add_argument(
@@ -40,10 +40,10 @@ def run_classifier():
     total_epoch = args.epochs
     
     # Creating Normalization Dictionary
-    with open("./noslang_data.json", "r") as f:
+    with open("/mnt/立场检测/PStance/source/noslang_data.json", "r") as f:
         data1 = json.load(f)
     data2 = {}
-    with open("./emnlp_dict.txt", "r") as f:
+    with open("/mnt/立场检测/PStance/source/emnlp_dict.txt", "r") as f:
         lines = f.readlines()
         for line in lines:
             row = line.split('\t')
@@ -162,7 +162,7 @@ def run_classifier():
                     optimizer.step()
                     train_loss.append(loss.item())
                 sum_loss.append(sum(train_loss) / len(x_train))  
-                print(sum_loss[epoch])
+                print("Train loss: {}".format(sum_loss[epoch]))
 
                 # evaluation on dev set
                 model.eval()
@@ -205,16 +205,16 @@ def run_classifier():
             best_result.append([f1[best_epoch] for f1 in test_f1_average])
 
             print("******************************************")
-            print("dev results with seed {} on all epochs".format(seed))
+            print("Dev results with seed {} on all epochs".format(seed))
             print(val_f1_average)
             best_val.append(val_f1_average[best_epoch])
             print("******************************************")
-            print("test results with seed {} on all epochs".format(seed))
+            print("Test results with seed {} on all epochs".format(seed))
             print(test_f1_average)
             print("******************************************")
         
         # model that performs best on the dev set is evaluated on the test set
-        print("model performance on the test set: ")
+        print("Model performance on the test set: ")
         print(best_result)
 
 

@@ -1,5 +1,5 @@
 import torch.nn as nn
-from transformers import AutoModel, BertModel
+from transformers import AutoModel
 from modelscope.hub.snapshot_download import snapshot_download
 
 
@@ -15,20 +15,16 @@ class stance_classifier(nn.Module):
         self.tanh = nn.Tanh()
         
         if model_select == 'Bertweet':
-            self.bert = AutoModel.from_pretrained("vinai/bertweet-base")
+            print("载入 Bertweet 模型 ... ...")
+            # 使用与data_helper.py相同的本地路径
+            local_dir = "./modelscope_models/bertweet-base"
+            self.bert = AutoModel.from_pretrained(local_dir)
         elif model_select == 'Bert':
-            # ModelScope的模型ID（可在ModelScope官网搜索获取）
-            model_id = "google-bert/bert-base-uncased"
+            print("载入 Bert 模型 ... ...")
             # 本地保存路径
             local_dir = "./modelscope_models/bert-base-uncased"
-
-            # 下载模型（自动处理断点续传）
-            snapshot_download(
-                model_id=model_id,
-                local_dir=local_dir,
-            )
-
-            self.bert = BertModel.from_pretrained(local_dir)
+            self.bert = AutoModel.from_pretrained(local_dir)
+            
         self.linear = nn.Linear(self.bert.config.hidden_size, self.bert.config.hidden_size)
         self.out = nn.Linear(self.bert.config.hidden_size, num_labels)
         
